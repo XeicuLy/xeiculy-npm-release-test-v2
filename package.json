@@ -1,0 +1,73 @@
+{
+  "name": "xeiculy-npm-release-test-v2",
+  "type": "module",
+  "version": "1.0.0",
+  "packageManager": "pnpm@10.10.0",
+  "description": "XeicuLy's opinionated ESLint rules",
+  "author": "XeicuLy",
+  "license": "MIT",
+  "homepage": "https://github.com/XeicuLy/xeiculy-npm-release-test-v2#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XeicuLy/xeiculy-npm-release-test-v2.git"
+  },
+  "bugs": "https://github.com/XeicuLy/xeiculy-npm-release-test-v2/issues",
+  "keywords": ["eslint", "eslint-plugin"],
+  "sideEffects": false,
+  "exports": {
+    ".": "./dist/index.mjs"
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "release": "changelogen --release --push && pnpm publish",
+    "biome": "biome check .",
+    "biome:fix": "biome check --write .",
+    "biome:ci": "biome ci .",
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write .",
+    "prettier:ci": "prettier --check --log-level warn .",
+    "typecheck": "tsc --noEmit",
+    "lint": "pnpm biome && pnpm prettier && pnpm typecheck",
+    "lint:fix": "pnpm biome:fix && pnpm prettier:fix && pnpm typecheck",
+    "prerelease": "pnpm build && pnpm lint:fix",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@commitlint/cli": "19.8.0",
+    "@types/node": "22.15.3",
+    "changelogen": "0.6.1",
+    "commitizen": "4.3.1",
+    "commitlint-config-gitmoji": "2.3.1",
+    "cz-customizable": "7.4.0",
+    "husky": "9.1.7",
+    "lint-staged": "15.5.1",
+    "prettier": "3.5.3",
+    "typescript": "5.8.3",
+    "unbuild": "3.5.0",
+    "vite": "6.3.3",
+    "vite-node": "3.1.2",
+    "vitest": "3.1.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": ".cz-config.cts"
+    }
+  },
+  "lint-staged": {
+    "**/*.{css,js,ts,cjs,mjs,cts,mts,jsx,tsx,json,jsonc}": ["biome check --write --no-errors-on-unmatched"],
+    "**/*.{md,html,yaml,yml}": ["prettier --write"]
+  },
+  "volta": {
+    "node": "22.15.0",
+    "pnpm": "10.10.0"
+  }
+}

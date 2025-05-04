@@ -1,7 +1,7 @@
 {
   "name": "xeiculy-npm-release-test-v2",
   "type": "module",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "packageManager": "pnpm@10.10.0",
   "description": "XeicuLy's opinionated ESLint rules",
   "author": "XeicuLy",

@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.1.1
+
+[compare changes](https://github.com/XeicuLy/xeiculy-npm-release-test-v2/compare/v1.1.0...v1.1.1)
 
 ## v1.1.0
 
@@ -12,4 +15,3 @@
 ### ❤️ Contributors
 
 - XeicuLy ([@XeicuLy](https://github.com/XeicuLy))
-
